@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
-import { ClerkProvider } from "@clerk/nextjs";
-import { jaJP } from "@clerk/localizations";
+import ConvexClerkProvider from "@/components/providers/ConvexClerkProvider";
 
 const font = Noto_Sans_JP({ subsets: ["latin"] });
 
@@ -17,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider localization={jaJP}>
+    <ConvexClerkProvider >
     <html lang="ja">
       <body
         className={`${font.className} antialiased`}
@@ -25,6 +24,6 @@ export default function RootLayout({
         {children}
       </body>
     </html>
-    </ClerkProvider>
+    </ConvexClerkProvider>
   );
 }
